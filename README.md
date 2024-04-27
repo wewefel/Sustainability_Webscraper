@@ -57,7 +57,11 @@ It utilizes various tools including Beautiful Soup for scraping, NLTK for text p
 **2. Install Git:**
 * If you don't already have Git installed on your computer, you'll need to install it first. You can download Git from [here](https://git-scm.com/).
 
-**3. Open Your Terminal or Command Prompt:**
+**3. Create Google Cloud account with access to the Custom Search JSON API.**
+* Go [here](https://developers.google.com/custom-search/v1/overview) to get your API key and CSE ID.
+* Rename `.env.example` to `.env` in the root directory of your project and add your `API_KEY` and `CSE_ID`.
+
+**4. Open Your Terminal or Command Prompt:**
 * Navigate to the directory where you want to clone the repository (this example uses desktop as the directory, but feel free to change).  
 * On Windows:
    ``` sh
@@ -74,7 +78,7 @@ It utilizes various tools including Beautiful Soup for scraping, NLTK for text p
 [Back to Top](#top)
 
 
-### Virtual Environment
+### Virtual Environment (Optional)
 
 _Creating a virtual environment is important for maintaining its own dependencies independent of other projects. This prevents conflicts between package versions that can lead to bugs and compatibility issues._
 
@@ -111,6 +115,7 @@ _Creating a virtual environment is important for maintaining its own dependencie
 * For example, in VS Code it should say '3.9.0 ('venv': venv) at the bottom of your screen, and in the VS Code command prompt you should see '(venv)' before your username.
 
 **6. Change the company name and website URL on the bottom cell of the .ipynb file, then run. View results in scraped_data.txt.**
+* The first time running the entire script may take a minute or two, but afterwards it will be pretty quick. After your first time running, all you need to do is alter and run the bottom cell that has the company name and website in it.
 
 [Back to Top](#top)
 
