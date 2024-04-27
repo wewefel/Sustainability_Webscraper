@@ -30,15 +30,18 @@ It utilizes various tools including Beautiful Soup for scraping, NLTK for text p
      * When you use the API, you get structured JSON data in return, which is easier to handle and parse compared to scraping HTML content from a webpage. This structured format saves time and reduces the complexity of the data extraction process.
    * Reliability and Scalability:
      * The API provides a reliable and scalable way to handle search queries, granting more effective request management and avoiding errors and inconsistencies due to webpage changes or IP bans.
+  
 **2. Establish our text classification model made with BERT.**
    * BERT is a revolutionary NLP tool made by Google AI Language using language understanding, context awareness, transformers, and more.
    * The model takes an input sequence and decides whether the text is related to environmental claims or not.
      * This helps us only scrape useful sustainability information that will be considered in subsequent testing and scoring.
    * For more information, visit [here](https://huggingface.co/Vinoth24/environmental_claims).
    * (This text classification model will eventually be replaced with my own model, but for now we will be using this.)
+  
 **3. Search and scrape:**
    * First narrows search to only use URLs that are not the company's own official website (or branches).
    * Uses a 'ThreadPoolExecutor'to manage a pool of threads, executing calls asynchronously. This is particularly useful in I/O-bound and high-latency operations such as web scraping, where the script often waits for network responses.
+  
 **4. Process and classify:**
    * After fetching content from each URL, we pass the information to a new function which "cleans" our data and prepares it to be fed to our text classification model.
      * Examples of cleaning the data incldues stripping white spaces and breaking the block of text down to smaller chunks if necessary while maintaining sentence integrity.
