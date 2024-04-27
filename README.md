@@ -81,6 +81,7 @@ It utilizes various tools including Beautiful Soup for scraping, NLTK for text p
 ### Virtual Environment (Optional) and Running the Script
 
 _Creating a virtual environment is important for maintaining its own dependencies independent of other projects. This prevents conflicts between package versions that can lead to bugs and compatibility issues._
+__However, you may skip the virtual environment and do step 4 in your command prompt if you're lazy (me).__
 
 **1. If Sustainability_Webscraper is on your desktop, use this command to navigate to the directory:**
 * Windows:
