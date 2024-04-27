@@ -78,7 +78,7 @@ It utilizes various tools including Beautiful Soup for scraping, NLTK for text p
 [Back to Top](#top)
 
 
-### Virtual Environment (Optional)
+### Virtual Environment (Optional) and Running the Script
 
 _Creating a virtual environment is important for maintaining its own dependencies independent of other projects. This prevents conflicts between package versions that can lead to bugs and compatibility issues._
 
