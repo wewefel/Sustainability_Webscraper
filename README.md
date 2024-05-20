@@ -62,7 +62,7 @@ It utilizes various tools including Beautiful Soup for scraping, NLTK for text p
 ### Prerequisites
 
 **1. Ensure Python 3.9 or 3.10 is installed (3.11 not working with our Transformers version):**
-* Before starting, make sure Python 3.9.0 or any newer version is installed on your system. You can check this by running python3 --version in your terminal or command prompt. If it’s not installed, you should install it from the official Python website [here](https://www.python.org/downloads).
+* Before starting, make sure Python 3.9 or Python 3.10 is installed on your system. You can check this by running python3 --version in your terminal or command prompt. If it’s not installed, you should install it from the official Python website [here](https://www.python.org/downloads).
 
 **2. Install Git:**
 * If you don't already have Git installed on your computer, you'll need to install it first. You can download Git from [here](https://git-scm.com/).
