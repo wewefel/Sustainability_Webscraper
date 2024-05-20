@@ -2,7 +2,14 @@
 
 # Sustainability Webscraper
 
-
+## Table of Contents
+1. [Overview](#overview)
+   - [Features](#features)
+   - [How it Works](#how-it-works)
+2. [Setup](#setup)
+   - [Prerequisites](#prerequisites)
+   - [Running the script](#running-the-script)
+3. [Limitations](#limitations)
 
 
 ## Overview
