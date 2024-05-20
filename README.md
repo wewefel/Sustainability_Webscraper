@@ -93,24 +93,24 @@ It utilizes various tools including Beautiful Soup for scraping, NLTK for text p
    ``` sh
    git clone https://github.com/wewefel/Sustainability_Webscraper.git
    ```
+**5. Install Requirements:**
+* Open terminal or command prompt:
+  ``` sh
+  pip install requests==2.31.0 beautifulsoup4==4.12.3 nltk==3.8.1 transformers==4.38.2 python-dotenv==1.0.1 happytransformer==2.1.0
+  ```
+**6. Make sure the 'pip install ...' is being stored in the correct Python version.**
+* You can check this by looking for a message in your command prompt that mentions where it is installed on your computer. For example:
+  * Sample message to look for: 'Requirement already satisfied: colorama in c:\users\wefel\appdata\local\packages\pythonsoftwarefoundation.python.3.10_qbz5n2kfra8p0\localcache\local-packages\python310\site-packages'
+  * Make sure the Python version in the message is the version that you will be using to run the web scraper.
+
 [Back to Top](#top)
 
 
 ### Running the Script
 
-**1. Install Requirements:**
-* Open terminal or command prompt:
-  ``` sh
-  pip install requests==2.31.0 beautifulsoup4==4.12.3 nltk==3.8.1 transformers==4.38.2 python-dotenv==1.0.1 happytransformer==2.1.0
-  ```
-**2. Make sure the 'pip install ...' is being stored in the correct Python version.**
-* You can check this by looking for a message in your command prompt that mentions where it is installed on your computer. For example:
-  * Sample message to look for: 'Requirement already satisfied: colorama in c:\users\wefel\appdata\local\packages\pythonsoftwarefoundation.python.3.10_qbz5n2kfra8p0\localcache\local-packages\python310\site-packages'
-  * Make sure the Python version in the message is the version that you will be using to run the web scraper.
+**1. Change the company name and website URL on the bottom cell of the .ipynb file.**
 
-**3. Change the company name and website URL on the bottom cell of the .ipynb file.**
-
-**4. Run each cell or press Run All. View results in scraped_data.txt.**
+**2. Run each cell or press Run All. View results in scraped_data.txt.**
 * The first time running the entire script may take a minute or two, but afterwards it will be pretty quick. After your first time running, all you need to do is alter and run the bottom cell that has the company name and website in it.
 
 [Back to Top](#top)
