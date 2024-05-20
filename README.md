@@ -18,7 +18,7 @@ This project consists of a Python web scraper that searches for and extracts inf
 It utilizes various tools including Beautiful Soup for scraping, NLTK for text processing, and a BERT model for text classification.
 
 ### Features
-- **Custom Google Search**: Leverages Google's Custom Search JSON API to retrieve relevant URLs based on the query.
+- **Custom Bing Search API**: Leverages Bing's Custom Search JSON API to retrieve relevant URLs based on the query.
 - **Content Filtering**: Excludes URLs that are from the company's official website or contain undesirable paths (e.g., downloads or lists).
 - **Concurrency**: Uses `ThreadPoolExecutor` for concurrent scraping, enhancing the speed and efficiency of data collection.
 - **Text Classification**: Employs a BERT-based model to classify sentences that are likely related to environmental or sustainability claims.
@@ -28,7 +28,7 @@ It utilizes various tools including Beautiful Soup for scraping, NLTK for text p
 ### How it Works
 
 
-**1. Define google_search function which uses Google's Custom Search JSON API. Here are some reasons why we use it:**
+**1. Define google_search function which uses Bing's Custom Search API. Here are some reasons why we use it:**
    * Legal and Compliance Considerations:
      * The API is a legitimate method provided by Google to access its search results programmatically, allowing us to use an approved channel and comply with Google's terms of service. This helps us avoid legal issues or our IP being blocked.
    * Customization and Relevance:
@@ -38,7 +38,7 @@ It utilizes various tools including Beautiful Soup for scraping, NLTK for text p
    * Reliability and Scalability:
      * The API provides a reliable and scalable way to handle search queries, granting more effective request management and avoiding errors and inconsistencies due to webpage changes or IP bans.
   
-**2. Establish our text classification model made with BERT.**
+**2. Establish our text classification model made with BERT (will be replaced soon with different BERT model).**
    * BERT is a revolutionary NLP tool made by Google AI Language using language understanding, context awareness, transformers, and more.
    * The model takes an input sequence and decides whether the text is related to environmental claims or not.
      * This helps us only scrape useful sustainability information that will be considered in subsequent testing and scoring.
