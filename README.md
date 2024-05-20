@@ -54,72 +54,56 @@ It utilizes various tools including Beautiful Soup for scraping, NLTK for text p
 
 ### Prerequisites
 
-**1. Ensure Python 3.9.0 or greater is installed:**
+**1. Ensure Python 3.9 or 3.10 is installed (3.11 not working with our Transformers version):**
 * Before starting, make sure Python 3.9.0 or any newer version is installed on your system. You can check this by running python3 --version in your terminal or command prompt. If it’s not installed, you should install it from the official Python website [here](https://www.python.org/downloads).
 
 **2. Install Git:**
 * If you don't already have Git installed on your computer, you'll need to install it first. You can download Git from [here](https://git-scm.com/).
 
-**3. Create Google Cloud account with access to the Custom Search JSON API.**
-* Go [here](https://developers.google.com/custom-search/v1/overview) to get your API key and CSE ID.
-* Rename `.env.example` to `.env` in the root directory of your project and add your `API_KEY` and `CSE_ID`.
+**3. Create an account for Bing Custom Search API (HSG members: no need to create your own account and instance; just copy my key and ID from Slack).**
+* Go [here](https://www.microsoft.com/en-us/bing/apis/bing-custom-search-api) and sign into your Microsoft account.
+* Create 'New Instance'
+* In Configuration, add an Active, Blocked, or Pinned URL (any arbitrary URL) so you can click 'Publish' in the top right.
+* Then go to 'Production, then opy the Custom Configuration ID.
+* Then click 'Click to issue free trial key' and follow the steps to obtain your API_KEY.
+* Rename `.env.example` to `.env` in the root directory of your project and add your `API_KEY` and `CUSTOM_CONFIG_ID`.
 
-**4. Open Your Terminal or Command Prompt:**
-* Navigate to the directory where you want to clone the repository (this example uses desktop as the directory, but feel free to change).  
-* On Windows:
+**4. Clone Github Repo:**
+* Go to the [Github repo](https://github.com/wewefel/Sustainability_Webscraper)
+* Method 1: Click code, download as zip file, then extract all.
+  * Method 2: Use 'git clone'
+  * Open your terminal or command prompt
+  * Navigate to the directory where you want to clone the repository (this example uses desktop as the directory, but feel free to change).  
+  * On Windows:
    ``` sh
    cd Desktop
    ```
-* On Mac or Linux:
+  * On Mac or Linux:
    ``` sh
    cd ~/Desktop
    ```
-* Then clone the repository:
+  * Then clone the repository:
    ``` sh
    git clone https://github.com/wewefel/Sustainability_Webscraper.git
    ```
 [Back to Top](#top)
 
 
-### Virtual Environment (Optional) and Running the Script
+### Running the Script
 
-_Creating a virtual environment is important for maintaining its own dependencies independent of other projects. This prevents conflicts between package versions that can lead to bugs and compatibility issues._
-  
-_However, you may skip the virtual environment and do step 4 in your command prompt if you're lazy (me)._
+**1. Install Requirements:**
+* Open terminal or command prompt:
+  ``` sh
+  pip install requests==2.31.0 beautifulsoup4==4.12.3 nltk==3.8.1 transformers==4.38.2 python-dotenv==1.0.1 happytransformer==2.1.0
+  ```
+**2. Make sure the 'pip install ...' is being stored in the correct Python version.**
+* You can check this by looking for a message in your command prompt that mentions where it is installed on your computer. For example:
+  * Sample message to look for: 'Requirement already satisfied: colorama in c:\users\wefel\appdata\local\packages\pythonsoftwarefoundation.python.3.10_qbz5n2kfra8p0\localcache\local-packages\python310\site-packages'
+  * Make sure the Python version in the message is the version that you will be using to run the web scraper.
 
-**1. If Sustainability_Webscraper is on your desktop, use this command to navigate to the directory:**
-* Windows:
-  ``` sh
-  cd Desktop\Sustainability_Webscraper
-  ```
+**3. Change the company name and website URL on the bottom cell of the .ipynb file.**
 
-* Mac or Linux:
-  ``` sh
-  cd ~/Desktop/Sustainability_Webscraper
-  ```
-**2. Once you are inside the Sustainability_Webscraper directory, create the virtual environment using:**
-   ``` sh
-   python3 -m venv venv
-   ```
-* This command creates a new folder in the project directory called 'venv' where the virtual environment files will be stored.
-**3. Activate the Virtual Environment:**
-* Windows:
-  ``` sh
-  venv\Scripts\activate
-  ```
-* Mac or Linux:
-  ``` sh
-  source venv/bin/activate
-  ```
-**4. Install Requirements:**
-* With the virtual environment activated, install all the packages listed in the requirements.txt file by running:
-  ``` sh
-  pip install -r requirements.txt
-  ```
-**5. Make sure the script is being run in your virtual environment.**
-* For example, in VS Code it should say '3.9.0 ('venv': venv) at the bottom of your screen, and in the VS Code command prompt you should see '(venv)' before your username.
-
-**6. Change the company name and website URL on the bottom cell of the .ipynb file, then run. View results in scraped_data.txt.**
+**4. Run each cell or press Run All. View results in scraped_data.txt.**
 * The first time running the entire script may take a minute or two, but afterwards it will be pretty quick. After your first time running, all you need to do is alter and run the bottom cell that has the company name and website in it.
 
 [Back to Top](#top)
@@ -128,8 +112,7 @@ _However, you may skip the virtual environment and do step 4 in your command pro
 
 * The current text classification model used ONLY detects environmental claims.
   * Topics such as charity/donations, governance, activism, and more may not be scraped if they are not also about the environment.
-  * I have a few ideas on how to fix this, but they have not been implemented yet (4/26/2024).
+  * WILL SOON BE FIXED WITH ESG-BERT, JUST GIVE ME TIME.
 * Only scrapes one company at a time.
-  * Eventually, the script will be able to take a list of company names (or maybe dictionary so we use a {company_name: company_website} format).
-    * Probably create a new .txt file for each company.
-* Needs more testing.
+  * Eventually, the script will be able to execute a list of company names at once.
+    * Create single .csv file for all companies in batch.
