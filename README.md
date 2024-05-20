@@ -28,11 +28,11 @@ It utilizes various tools including Beautiful Soup for scraping, NLTK for text p
 ### How it Works
 
 
-**1. Define google_search function which uses Bing's Custom Search API. Here are some reasons why we use it:**
+**1. Define bing_search function which uses Bing's Custom Search API. Here are some reasons why we use it:**
    * Legal and Compliance Considerations:
-     * The API is a legitimate method provided by Google to access its search results programmatically, allowing us to use an approved channel and comply with Google's terms of service. This helps us avoid legal issues or our IP being blocked.
+     * The API is a legitimate method provided by Google to access its search results programmatically, allowing us to use an approved channel and comply with Bing's terms of service. This helps us avoid legal issues or our IP being blocked.
    * Customization and Relevance:
-     * The Custom Search JSON API allows you to create a customized search experience that can target specific websites or domains, exclude others, and fine-tune the search engine to focus on particular topics or types of content.
+     * The Custom Search API allows you to create a customized search experience that can target specific websites or domains, exclude others, and fine-tune the search engine to focus on particular topics or types of content.
    * Efficiency and Structured Data:
      * When you use the API, you get structured JSON data in return, which is easier to handle and parse compared to scraping HTML content from a webpage. This structured format saves time and reduces the complexity of the data extraction process.
    * Reliability and Scalability:
