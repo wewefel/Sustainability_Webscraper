@@ -21,7 +21,7 @@ It utilizes various tools including Beautiful Soup for scraping, NLTK for text p
 - **Custom Bing Search API**: Leverages Bing's Custom Search JSON API to retrieve relevant URLs based on the query.
 - **Content Filtering**: Excludes URLs that are from the company's official website or contain undesirable paths (e.g., downloads or lists).
 - **Concurrency**: Uses `ThreadPoolExecutor` for concurrent scraping, enhancing the speed and efficiency of data collection.
-- **Text Classification**: Employs a BERT-based model to classify sentences that are likely related to environmental or sustainability claims.
+- **Text Classification**: Employs three separate BERT-based models to classify sentences that are related to environmental, social, or governance claims.
 
 
 
@@ -64,10 +64,21 @@ It utilizes various tools including Beautiful Soup for scraping, NLTK for text p
 **1. Ensure Python 3.9 or 3.10 is installed (3.11 not working with our Transformers version):**
 * Before starting, make sure Python 3.9 or Python 3.10 is installed on your system. You can check this by running python3 --version in your terminal or command prompt. If it’s not installed, you should install it from the official Python website [here](https://www.python.org/downloads).
 
-**2. Install Git:**
+**2. Install [CUDA toolkit](https://developer.nvidia.com/cuda-12-1-0-download-archive) and [NVIDIA cuDNN](https://developer.nvidia.com/cudnn) (optional).**
+* Depending on your PC, you may not be able to use CUDA.
+* This step is strongly encouraged but technically not required. Your code will run significantly slower on CPU since we are now using three text classification models.
+* If you decide to skip this step, you can alter the code to only use the "environmental_claims" model and delete the SocialBERT and GovernanceBERT models if the code is taking too long to run.
+* Make sure not to use the newest version of CUDA as it is not yet compatabile with the latest PyTorch. Toolkit 12.5 was not working for me, so I used 12.1 and it worked fine.
+* If you already had PyTorch installed prior to installing CUDA, uninstall it and reinstall through CUDA:
+  ``` sh
+  pip uninstall torch torchvision torchaudio
+  pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu121
+  ```
+
+**3. Install Git:**
 * If you don't already have Git installed on your computer, you'll need to install it first. You can download Git from [here](https://git-scm.com/).
 
-**3. Create an account for Bing Custom Search API (HSG members: no need to create your own account and instance; just copy my key and ID from Slack).**
+**4. Create an account for Bing Custom Search API (HSG members: no need to create your own account and instance; just copy my key and ID from Slack).**
 * Go [here](https://www.microsoft.com/en-us/bing/apis/bing-custom-search-api) and sign into your Microsoft account.
 * Create 'New Instance'
 * In Configuration, add an Active, Blocked, or Pinned URL (any arbitrary URL) so you can click 'Publish' in the top right.
@@ -75,7 +86,7 @@ It utilizes various tools including Beautiful Soup for scraping, NLTK for text p
 * Then click 'Click to issue free trial key' and follow the steps to obtain your API_KEY.
 * Rename `.env.example` to `.env` in the root directory of your project and add your `API_KEY` and `CUSTOM_CONFIG_ID`.
 
-**4. Clone Github Repo:**
+**5. Clone Github Repo:**
 * Go to the [Github repo](https://github.com/wewefel/Sustainability_Webscraper)
 * Method 1: Click code, download as zip file, then extract all.
   * Method 2: Use 'git clone'
@@ -93,12 +104,12 @@ It utilizes various tools including Beautiful Soup for scraping, NLTK for text p
    ``` sh
    git clone https://github.com/wewefel/Sustainability_Webscraper.git
    ```
-**5. Install Requirements:**
+**6. Install Requirements:**
 * Open terminal or command prompt:
   ``` sh
   pip install requests==2.31.0 beautifulsoup4==4.12.3 nltk==3.8.1 transformers==4.38.2 python-dotenv==1.0.1 happytransformer==2.1.0
   ```
-**6. Make sure the 'pip install ...' is being stored in the correct Python version.**
+**7. Make sure the 'pip install ...' is being stored in the correct Python version.**
 * You can check this by looking for a message in your command prompt that mentions where it is installed on your computer. For example:
   * Sample message to look for: 'Requirement already satisfied: colorama in c:\users\wefel\appdata\local\packages\pythonsoftwarefoundation.python.3.10_qbz5n2kfra8p0\localcache\local-packages\python310\site-packages'
   * Make sure the Python version in the message is the version that you will be using to run the web scraper.
