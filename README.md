@@ -128,9 +128,5 @@ It utilizes various tools including Beautiful Soup for scraping, NLTK for text p
 
 ## Limitations
 
-* The current text classification model used ONLY detects environmental claims.
-  * Topics such as charity/donations, governance, activism, and more may not be scraped if they are not also about the environment.
-  * WILL SOON BE FIXED WITH ESG-BERT, JUST GIVE ME TIME.
 * Only scrapes one company at a time.
   * Eventually, the script will be able to execute a list of company names at once.
-    * Create single .csv file for all companies in batch.
