@@ -31,7 +31,7 @@ class ScraperHelper:
 
     @staticmethod
     def write_to_file(filepath: str, url: str, content: str):
-        with open(filepath, 'w', encoding='utf-8') as file:
+        with open(filepath, 'a', encoding='utf-8') as file:
             file.write(f"URL: {url}\nContent:\n{content}\n\n")
 
 
