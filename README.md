@@ -68,7 +68,7 @@ It utilizes various tools including Beautiful Soup for scraping, NLTK for text p
 * Depending on your PC, you may not be able to use CUDA.
 * This step is strongly encouraged but technically not required. Your code will run significantly slower on CPU since we are now using three text classification models.
 * If you decide to skip this step, you can alter the code to only use the "environmental_claims" model and delete the SocialBERT and GovernanceBERT models if the code is taking too long to run.
-* Make sure not to use the newest version of CUDA as it is not yet compatabile with the latest PyTorch. Toolkit 12.5 was not working for me, so I used 12.1 and it worked fine.
+* Make sure not to use the newest version of CUDA as it is not yet compatabile with the latest PyTorch. I personally use version 12.1 since 12.5 is not compatabile.
 * If you already had PyTorch installed prior to installing CUDA, uninstall it and reinstall through CUDA:
   ``` sh
   pip uninstall torch torchvision torchaudio
